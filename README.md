@@ -1,5 +1,10 @@
-# Mantine Vite template
+Taskify - Task, Todo Management Inspired by Any.do
+Taskify is a task and todo management system inspired by the popular app Any.do. This project is built using React and managed with Yarn.
 
-Get started with the template by clicking `Use this template` button on the top of the page.
-
-[Documentation](https://mantine.dev/guides/vite/)
+Features
+Task Management: Create, edit, delete, and manage tasks easily.
+Todo Lists: Organize your tasks into lists for better productivity.
+Task Prioritization: Prioritize tasks to focus on what's important.
+Due Dates: Set due dates to keep track of deadlines.
+Responsive Design: Accessible on both desktop and mobile devices.
+Archive: Archive completed tasks to keep your workspace clean.
