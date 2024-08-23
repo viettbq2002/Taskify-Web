@@ -1,5 +1,8 @@
+import { Button } from "@mantine/core";
 import "@mantine/core/styles.css";
 
 export default function App() {
-  return <div>Hello World</div>;
+  return <div>
+    <Button >Test</Button>
+  </div>;
 }
