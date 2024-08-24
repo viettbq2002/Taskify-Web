@@ -1,6 +1,10 @@
-import { Button } from "@mantine/core";
+import MainSideBar from "@/shared/components/main-sidebar";
 import "@mantine/core/styles.css";
 
 export default function App() {
-  return <div></div>;
+  return (
+    <div>
+      <MainSideBar />
+    </div>
+  );
 }
