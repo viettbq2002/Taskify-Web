@@ -1,10 +1,8 @@
-import MainSideBar from "@/shared/components/main-sidebar";
+import routes from "@/routes";
 import "@mantine/core/styles.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 export default function App() {
-  return (
-    <div>
-      <MainSideBar />
-    </div>
-  );
+  const router = createBrowserRouter(routes);
+  return <RouterProvider router={router} />;
 }
