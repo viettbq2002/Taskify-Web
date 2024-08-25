@@ -19,6 +19,7 @@ const MainSideBar = ({ toggle }: Readonly<NavbarLinkProps>) => {
   const data = [{ link: "/all", label: "All Tasks", icon: IconListDetails }];
   const links = data.map((item) => (
     <NavLink
+      onClick={toggle}
       color="dark.2"
       active={currentPath === item.link}
       component={Link}
