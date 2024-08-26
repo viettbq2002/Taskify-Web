@@ -45,7 +45,7 @@ const MainSideBar = ({ toggle }: Readonly<NavbarLinkProps>) => {
         mt="lg"
         href="#required-for-focus"
         label="My lists"
-        rightSection={<IconPlus size="1rem" stroke={1.5} />}
+        rightSection={<IconPlus className={classes.linkIconButton} size="1rem" stroke={1.5} />}
       >
         <NavLink label="First child link" href="#required-for-focus" />
         <NavLink label="Second child link" href="#required-for-focus" />
@@ -57,7 +57,7 @@ const MainSideBar = ({ toggle }: Readonly<NavbarLinkProps>) => {
         mt="lg"
         href="#required-for-focus"
         label="Tags"
-        rightSection={<IconPlus size="1rem" stroke={1.5} />}
+        rightSection={<IconPlus className={classes.linkIconButton} size="1rem" stroke={1.5} />}
       >
         <NavLink label="First child link" href="#required-for-focus" />
         <NavLink label="Second child link" href="#required-for-focus" />

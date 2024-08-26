@@ -1,6 +1,6 @@
 import MainSideBar from "@/shared/components/main-sidebar";
 import { MobileSidebar } from "@/shared/components/mobile-sidebar";
-import { AppShell, Box, Container, Flex } from "@mantine/core";
+import { AppShell, Flex } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router-dom";
 
