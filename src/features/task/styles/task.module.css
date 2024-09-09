@@ -3,3 +3,11 @@
     background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
   }
 }
+.checkBox {
+    cursor: pointer;
+    &:hover {
+        outline: 2px solid var(--mantine-color-blue-6);
+        outline-offset: -2px;
+    }
+  
+}
