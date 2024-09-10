@@ -1,6 +1,6 @@
 import MainSideBar from "@/shared/components/main-sidebar";
 import { MobileSidebar } from "@/shared/components/mobile-sidebar";
-import { AppShell, Box, Flex } from "@mantine/core";
+import { AppShell, Box, Container, Flex } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Outlet } from "react-router-dom";
 
@@ -20,9 +20,9 @@ const MainLayout = () => {
       <AppShell.Main bg={"gray.1"}>
         <Flex>
           <MobileSidebar opened={opened} toggle={toggle} />
-          <Box w="100%" h="100vh"  p="xl">
+          <Container w="100%" size="100%" pt="lg" px="xl">
             <Outlet />
-          </Box>
+          </Container>
         </Flex>
       </AppShell.Main>
     </AppShell>
