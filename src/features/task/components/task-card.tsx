@@ -5,7 +5,7 @@ const TaskCard = () => {
   const [active, setActive] = useState(false);
   return (
     <Card onClick={() => setActive(!active)} shadow={active ? "xs" : ""} withBorder={active} radius="md" className={classes.taskCard}>
-      <Card.Section py="2px" px="md">
+      <Card.Section py="2px" px="xs">
         <Group>
           <Checkbox classNames={{ input: classes.checkBox }} radius={"xl"} />
           <Stack gap="0">

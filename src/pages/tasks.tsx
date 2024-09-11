@@ -1,16 +1,24 @@
 import TaskCard from "@/features/task/components/task-card";
 import TaskMenu from "@/features/task/components/task-menu";
 import { Box, Grid, GridCol, Paper, ScrollArea, Stack, TextInput } from "@mantine/core";
-
+import classes from "@/features/task/styles/board.module.css";
 const Tasks = () => {
   return (
     <>
       <TaskMenu />
-      <Grid styles={{ inner: { height: "100%" } }} h="calc(100vh - 100px)">
+      <Grid>
         <GridCol span={4}>
-          <Paper h="100%" radius="lg" style={{ display: "flex", flexDirection: "column" }}>
-          
-            <Box component="form" style={{ marginTop: "auto", padding: "16px" }}>
+          <Paper
+            h="100%"
+            radius="lg"
+            style={{ display: "flex", flexDirection: "column", maxHeight: "calc(100vh - 120px)", minHeight: "calc(100vh - 120px)" }}
+          >
+            <ScrollArea p="md">
+              <Stack>
+                <TaskCard />
+              </Stack>
+            </ScrollArea>
+            <Box component="form" className={classes.quickAddContainer}>
               <TextInput placeholder="Add Task" />
             </Box>
           </Paper>
