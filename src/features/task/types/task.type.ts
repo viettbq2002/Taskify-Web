@@ -2,10 +2,10 @@ import { IBase } from "@/shared/type/base-type";
 
 export interface IItem extends IBase {
   title: string;
-  note: string;
+  note?: string;
   isCompleted: boolean;
   isArchived: boolean;
-  dueDate: Date;
+  dueDate?: Date;
   subItems: SubItem[];
 }
 
