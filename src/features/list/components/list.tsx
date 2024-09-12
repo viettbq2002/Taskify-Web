@@ -22,7 +22,9 @@ const List = () => {
   const queryList = useListQuery(false);
   const { data: queryResult } = queryList;
   const lists =
-    queryResult?.data.map((item) => <NavLink component={Link} styles={ChildNavLinkStyle} label={item.categoryName} to={`/list/${item.id}`} />) ?? [];
+    queryResult?.data.map((item) => (
+      <NavLink key={item.id} component={Link} styles={ChildNavLinkStyle} label={item.categoryName} to={`/list/${item.id}`} />
+    )) ?? [];
   const location = useLocation();
   const currentPath = location.pathname;
   return (
