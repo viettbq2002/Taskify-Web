@@ -1,5 +1,8 @@
 .taskCard {
   cursor: pointer;
+  border: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  box-shadow: var(--mantine-shadow-md);
+  
   @mixin hover {
     background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
   }
@@ -11,4 +14,7 @@
         outline-offset: -2px;
     }
   
+}
+.cardBody {
+  box-shadow: var(--mantine-shadow-md);
 }

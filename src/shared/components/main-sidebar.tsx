@@ -1,7 +1,8 @@
+import List from "@/features/list/components/list";
 import { UserButton } from "@/shared/components/user-button";
 import { Button, NavLink } from "@mantine/core";
 import classes from "@shared/styles/sidebar.module.css";
-import { IconListDetails, IconNotebook, IconPlus, IconTag } from "@tabler/icons-react";
+import { IconListDetails, IconPlus, IconTag } from "@tabler/icons-react";
 import { Link, useLocation } from "react-router-dom";
 const NavLinkStyle = {
   label: {
@@ -39,18 +40,7 @@ const MainSideBar = ({ toggle }: Readonly<NavbarLinkProps>) => {
         Close
       </Button>
       {links}
-      <NavLink
-        leftSection={<IconNotebook className={classes.linkIcon} />}
-        styles={NavLinkStyle}
-        mt="lg"
-        href="#required-for-focus"
-        label="My lists"
-        rightSection={<IconPlus className={classes.linkIconButton} size="1rem" stroke={1.5} />}
-      >
-        <NavLink label="First child link" href="#required-for-focus" />
-        <NavLink label="Second child link" href="#required-for-focus" />
-        <NavLink label="Third child link" href="#required-for-focus" />
-      </NavLink>
+      <List />
       <NavLink
         leftSection={<IconTag className={classes.linkIcon} />}
         styles={NavLinkStyle}
