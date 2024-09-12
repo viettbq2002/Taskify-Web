@@ -1,7 +1,11 @@
 import { Card, Checkbox, Group, Stack, Text } from "@mantine/core";
 import classes from "@/features/task/styles/task.module.css";
-import { useState } from "react";
-const TaskCard = () => {
+import { FC, useState } from "react";
+import { IItem } from "@/features/task/types/task.type";
+interface TaskCardProps {
+  task: IItem;
+}
+const TaskCard: FC<TaskCardProps> = ({ task }) => {
   const [active, setActive] = useState(false);
   return (
     <Card onClick={() => setActive(!active)} bg={active ? "gray.0" : ""} withBorder={active} radius="md" className={classes.taskCard}>
