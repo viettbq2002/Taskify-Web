@@ -16,17 +16,26 @@ export const useQueryTasks = (isArchived: boolean) => {
 export const useCreateItem = () => {
   const queryClient = useQueryClient();
   const [item, setItem] = useState<ICreateItem | null>(null);
-  const handleInputChange = (title: string) => {
-    setItem({ ...item, title });
+  const handleInputChange = (title: string, categoryId?: number) => {
+    setItem({ ...item, title, categoryId });
   };
   const handleAddItem = () => {
     if (item === null || item.title.length === 0) return;
     toast.promise(
       addItem(item)
         .then(() => {
-          queryClient.invalidateQueries({
-            queryKey: [QUERY_KEY.TASKS],
-          });
+          if (item.categoryId) {
+            Promise.all([
+              queryClient.invalidateQueries({
+                queryKey: [QUERY_KEY.TASKS, false],
+              }),
+              queryClient.invalidateQueries({
+                queryKey: [QUERY_KEY.LIST_DETAIL, item.categoryId],
+              }),
+            ]);
+          } else {
+            queryClient.invalidateQueries({ queryKey: [QUERY_KEY.TASKS, false] });
+          }
         })
         .finally(() => {
           setItem(null);

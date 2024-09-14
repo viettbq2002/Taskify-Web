@@ -10,11 +10,11 @@ export function useListQuery(isArchived: boolean) {
   });
 }
 
-export function useListByIdQuery(id: number) {
+export function useListByIdQuery(id: number | undefined) {
   return useQuery({
     queryKey: [QUERY_KEY.LIST_DETAIL, id],
-    queryFn: () => getListById(id),
+    queryFn: () => getListById(Number(id)),
     staleTime: 5 * 60 * 1000,
+    enabled: !!id,
   });
 }
-  

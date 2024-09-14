@@ -1,7 +1,7 @@
 export interface IBase {
   id: number;
-  createdAt: string;
-  updateAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 export interface IResponse<T> {
   statusCode: number;

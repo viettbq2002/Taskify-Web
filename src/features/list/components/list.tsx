@@ -13,10 +13,10 @@ const NavLinkStyle = {
 
 const List = () => {
   const queryList = useListQuery(false);
-  const { data: queryResult } = queryList;
-  const lists = queryResult?.data.map((item) => <NavLink key={item.id} component={Link} label={item.categoryName} to={`/list/${item.id}`} />) ?? [];
   const location = useLocation();
   const currentPath = location.pathname;
+  const { data: queryResult } = queryList;
+  const lists = queryResult?.data.map((item) => <NavLink active={currentPath === `/list/${item.id}`} key={item.id} component={Link} label={item.categoryName} to={`/list/${item.id}`} />) ?? [];
   return (
     <NavLink
       leftSection={<IconNotebook className={classes.linkIcon} />}

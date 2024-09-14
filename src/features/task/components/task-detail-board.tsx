@@ -2,10 +2,14 @@ import { ActionIcon, Breadcrumbs, Button, Tooltip } from "@mantine/core";
 import classes from "@/features/task/styles/board.module.css";
 import { Flex, Group, Anchor } from "@mantine/core";
 import { IconArchive } from "@tabler/icons-react";
+import { useAtomValue } from "jotai";
+import { taskAtom } from "@/features/task/atom/task.atom";
+
 const TaskDetailBoard = () => {
+  const task = useAtomValue(taskAtom);
   const items = [
-    { title: "Mantine", href: "#" },
-    { title: "Mantine hooks", href: "#" },
+    { title: "My List", href: "all" },
+    { title: task?.categoryName, href: "#" },
     { title: "use-id", href: "#" },
   ].map((item, index) => (
     <Anchor c="dimmed" fz="sm" href={item.href} key={index}>
