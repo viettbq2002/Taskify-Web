@@ -5,6 +5,7 @@ export interface IItem extends IBase {
   note?: string;
   isCompleted: boolean;
   isArchived: boolean;
+  categoryName?: string;
   dueDate?: Date;
   subItems: SubItem[];
 }
@@ -12,4 +13,10 @@ export interface IItem extends IBase {
 export interface SubItem extends IBase {
   title: string;
   isCompleted: boolean;
+}
+
+export interface ICreateItem {
+  title:string;
+  categoryId?: number;
+  tagId?: number;
 }

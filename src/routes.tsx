@@ -1,6 +1,7 @@
 import MainLayout from "@/layout/main-layout";
 import TaskBoardLayout from "@/layout/task-board-layout";
 import AllTasks from "@/pages/all-tasks";
+import ListDetails from "@/pages/list-details";
 import { RouteObject } from "react-router-dom";
 
 const routes: RouteObject[] = [
@@ -17,8 +18,8 @@ const routes: RouteObject[] = [
             element: <AllTasks />,
           },
           {
-            path: "list/:id",
-            element: "",
+            path: "list/:listId",
+            element: <ListDetails />,
           },
         ],
       },

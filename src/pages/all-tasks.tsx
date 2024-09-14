@@ -1,13 +1,26 @@
 import TaskBoard from "@/features/task/components/task-board";
-import { useQueryTasks } from "@/features/task/queries/queryTask";
+import { useCreateItem, useQueryTasks } from "@/features/task/queries/queryTask";
 const AllTasks = () => {
   const queryTasks = useQueryTasks(false);
   const { data: queryResult } = queryTasks;
   const tasks = queryResult?.data ?? [];
+  const { item, handleInputChange, handleAddItem } = useCreateItem();
 
   return (
     <>
-      <TaskBoard tasks={tasks} />
+      <TaskBoard
+        quickAddAction={{
+          value: item ? item.title : "",
+          onChange: (e) => handleInputChange(e.target.value),
+          onKeyUp: (e) => {
+            e.preventDefault();
+            if (e.key === "Enter") {
+              handleAddItem();
+            }
+          },
+        }}
+        tasks={tasks}
+      />
     </>
   );
 };

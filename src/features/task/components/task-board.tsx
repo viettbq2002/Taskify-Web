@@ -5,8 +5,9 @@ import { IItem } from "@/features/task/types/task.type";
 import { FC, useEffect, useState } from "react";
 interface TaskBoardProps {
   tasks: IItem[];
+  quickAddAction: React.ComponentProps<typeof TextInput>;
 }
-const TaskBoard: FC<TaskBoardProps> = ({ tasks }) => {
+const TaskBoard: FC<TaskBoardProps> = ({ tasks, quickAddAction }) => {
   const [activeTask, setIsActiveTask] = useState<number | null>(null);
 
   useEffect(() => {
@@ -27,8 +28,8 @@ const TaskBoard: FC<TaskBoardProps> = ({ tasks }) => {
           ))}
         </Stack>
       </ScrollArea>
-      <Box component="form" className={classes.quickAddContainer}>
-        <TextInput placeholder="Add Task" />
+      <Box  className={classes.quickAddContainer}>
+        <TextInput aria-label="Quick Add Task" {...quickAddAction} placeholder="Add Task" />
       </Box>
     </>
   );

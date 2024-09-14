@@ -1,6 +1,6 @@
 import { Card, Checkbox, Group, Stack, Text } from "@mantine/core";
 import classes from "@/features/task/styles/task.module.css";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { IItem } from "@/features/task/types/task.type";
 interface TaskCardProps {
   task: IItem;
@@ -16,7 +16,7 @@ const TaskCard: FC<TaskCardProps> = ({ task, active, onClick }) => {
           <Stack gap="0">
             <Text lh={"sm"}>{task.title}</Text>
             <Text lh={"sm"} fz="sm" c="dimmed">
-              list here
+              {task.categoryName}
             </Text>
           </Stack>
         </Group>

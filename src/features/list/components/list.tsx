@@ -9,22 +9,12 @@ const NavLinkStyle = {
     color: "var(--mantine-color-dark-6)",
     fontWeight: "500",
   },
-  children: {
-    padding: "0",
-  },
 };
-const ChildNavLinkStyle = {
-  body: {
-    paddingLeft: "5px",
-  },
-};
+
 const List = () => {
   const queryList = useListQuery(false);
   const { data: queryResult } = queryList;
-  const lists =
-    queryResult?.data.map((item) => (
-      <NavLink key={item.id} component={Link} styles={ChildNavLinkStyle} label={item.categoryName} to={`/list/${item.id}`} />
-    )) ?? [];
+  const lists = queryResult?.data.map((item) => <NavLink key={item.id} component={Link} label={item.categoryName} to={`/list/${item.id}`} />) ?? [];
   const location = useLocation();
   const currentPath = location.pathname;
   return (

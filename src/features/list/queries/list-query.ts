@@ -1,5 +1,5 @@
 import { QUERY_KEY } from "@/constants/query-key";
-import { getAllList } from "@/features/list/services/list.service";
+import { getAllList, getListById } from "@/features/list/services/list.service";
 import { useQuery } from "@tanstack/react-query";
 
 export function useListQuery(isArchived: boolean) {
@@ -9,3 +9,12 @@ export function useListQuery(isArchived: boolean) {
     staleTime: 5 * 60 * 1000,
   });
 }
+
+export function useListByIdQuery(id: number) {
+  return useQuery({
+    queryKey: [QUERY_KEY.LIST_DETAIL, id],
+    queryFn: () => getListById(id),
+    staleTime: 5 * 60 * 1000,
+  });
+}
+  

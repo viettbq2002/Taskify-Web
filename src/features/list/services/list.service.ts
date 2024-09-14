@@ -1,4 +1,4 @@
-import { IList } from "@/features/list/types/list.type";
+import { IList, IListDetail } from "@/features/list/types/list.type";
 import apiClient from "@/lib/api-client";
 import { IResponse } from "@/shared/type/base-type";
 
@@ -11,8 +11,8 @@ export const getAllList = async (isArchived: boolean) => {
   return response.data;
 };
 
-export const getListById = async (id: string) => {
-  const response = await apiClient.get<IList>(`/categories/${id}`);
+export const getListById = async (id: number) => {
+  const response = await apiClient.get<IResponse<IListDetail>>(`/categories/${id}`);
   return response.data;
 };
 
