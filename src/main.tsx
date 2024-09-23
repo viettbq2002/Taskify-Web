@@ -9,9 +9,9 @@ import { Toaster } from "react-hot-toast";
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnMount: false,
+      refetchOnMount: true,
       refetchOnWindowFocus: false,
-      retry: false,
+      retry: 3,
     },
   },
 });

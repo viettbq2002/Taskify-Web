@@ -12,7 +12,7 @@ const TaskCard: FC<TaskCardProps> = ({ task, active, onClick }) => {
     <Card onClick={onClick} bg={active ? "gray.0" : ""} shadow={active ? "sm" : ""} withBorder={active} radius="md" className={classes.taskCard}>
       <Card.Section withBorder py="2px" px="xs">
         <Group>
-          <Checkbox checked={task.isCompleted} aria-label="check completed" classNames={{ input: classes.checkBox }} radius={"xl"} />
+          <Checkbox defaultChecked={task.isCompleted} aria-label="check completed" classNames={{ input: classes.checkBox }} radius={"xl"} />
           <Stack gap="0">
             <Text lh={"sm"}>{task.title}</Text>
             <Text lh={"sm"} fz="sm" c="dimmed">

@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export function useListQuery(isArchived: boolean) {
   return useQuery({
-    queryKey: [QUERY_KEY.LISTS, isArchived],
+    queryKey: [QUERY_KEY.LISTS, { isArchived }],
     queryFn: () => getAllList(isArchived),
     staleTime: 5 * 60 * 1000,
   });

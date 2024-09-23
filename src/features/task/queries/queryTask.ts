@@ -25,16 +25,16 @@ export const useCreateItem = () => {
       addItem(item)
         .then(() => {
           if (item.categoryId) {
-            Promise.all([
-              queryClient.invalidateQueries({
-                queryKey: [QUERY_KEY.TASKS, false],
-              }),
-              queryClient.invalidateQueries({
-                queryKey: [QUERY_KEY.LIST_DETAIL, item.categoryId],
-              }),
-            ]);
+            queryClient.invalidateQueries({
+              queryKey: [QUERY_KEY.LIST_DETAIL],
+            });
+            queryClient.invalidateQueries({
+              queryKey: [QUERY_KEY.TASKS],
+            });
           } else {
-            queryClient.invalidateQueries({ queryKey: [QUERY_KEY.TASKS, false] });
+            queryClient.invalidateQueries({
+              queryKey: [QUERY_KEY.TASKS],
+            });
           }
         })
         .finally(() => {

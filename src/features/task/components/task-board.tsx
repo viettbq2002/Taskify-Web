@@ -3,31 +3,28 @@ import { Box, ScrollArea, Stack, TextInput } from "@mantine/core";
 import TaskCard from "@/features/task/components/task-card";
 import { IItem } from "@/features/task/types/task.type";
 import { FC, useEffect, useState } from "react";
-import { useSetAtom } from "jotai";
-import { taskAtom } from "@/features/task/atom/task.atom";
+import EmptyTask from "@/features/task/components/empty-task";
 interface TaskBoardProps {
   tasks: IItem[];
   quickAddAction: React.ComponentProps<typeof TextInput>;
 }
 const TaskBoard: FC<TaskBoardProps> = ({ tasks, quickAddAction }) => {
   const [activeTask, setIsActiveTask] = useState<IItem | null>(null);
-  const setTask = useSetAtom(taskAtom);
 
   useEffect(() => {
     if (tasks.length > 0) {
       setIsActiveTask(tasks[0]);
-      setTask(tasks[0]);
     }
-  }, [tasks, setTask]);
+  }, [tasks]);
 
   const handleActive = (task: IItem) => {
     setIsActiveTask((prev) => {
       return prev?.id === task.id ? prev : { ...task };
     });
-    setTask(task);
   };
   return (
     <>
+      {tasks.length === 0 && <EmptyTask />}
       <ScrollArea p="md">
         <Stack>
           {tasks.map((task) => (
