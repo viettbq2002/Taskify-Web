@@ -6,6 +6,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import { store } from "@/lib/store.ts";
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -19,7 +21,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <MantineProvider theme={theme}>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
         <Toaster />
       </MantineProvider>
     </QueryClientProvider>

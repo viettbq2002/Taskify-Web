@@ -2,15 +2,15 @@ import { ActionIcon, Breadcrumbs, Button, Tooltip } from "@mantine/core";
 import classes from "@/features/task/styles/board.module.css";
 import { Flex, Group, Anchor } from "@mantine/core";
 import { IconArchive } from "@tabler/icons-react";
-import { useAtomValue } from "jotai";
-import { taskAtom } from "@/features/task/atom/task.atom";
+import { useAppSelector } from "@/shared/hooks/redux";
+import { selectItem } from "@/features/task/state/taskSlice";
 
 const TaskDetailBoard = () => {
-  const task = useAtomValue(taskAtom);
+  const task = useAppSelector(selectItem);
+
   const items = [
     { title: "My List", href: "all" },
     { title: task?.categoryName, href: "#" },
-    { title: "use-id", href: "#" },
   ].map((item, index) => (
     <Anchor c="dimmed" fz="sm" href={item.href} key={index}>
       {item.title}
